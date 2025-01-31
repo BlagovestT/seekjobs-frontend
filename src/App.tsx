@@ -13,15 +13,21 @@ const App: React.FC = () => {
   return (
     <AuthProvider>
       <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/job/:id" element={<JobDetails />} />
-          <Route path="/profile" element={<UserProfile />} />
-        </Routes>
-        <Footer />
+        <div className="flex flex-col min-h-screen">
+          <Navbar />
+
+          <main className="flex-grow">
+            <Routes>
+              <Route path="/register" element={<Register />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/job/:id" element={<JobDetails />} />
+              <Route path="/profile" element={<UserProfile />} />
+            </Routes>
+          </main>
+
+          <Footer />
+        </div>
       </Router>
     </AuthProvider>
   );

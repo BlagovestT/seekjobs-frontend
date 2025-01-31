@@ -15,14 +15,14 @@ const Login: React.FC = () => {
 
     const success = await login(email, password);
     if (success) {
-      navigate("/"); // Redirect after login
+      navigate("/");
     } else {
       setError("Invalid email or password");
     }
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-200">
       <h2 className="text-2xl font-bold mb-4">Login</h2>
       {error && <p className="text-red-500">{error}</p>}
       <form

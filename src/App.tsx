@@ -8,27 +8,30 @@ import UserProfile from "./pages/UserProfile";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { AuthProvider } from "./context/authContext";
+import { UserProvider } from "./context/userContext";
 
 const App: React.FC = () => {
   return (
     <AuthProvider>
-      <Router>
-        <div className="flex flex-col min-h-screen">
-          <Navbar />
+      <UserProvider>
+        <Router>
+          <div className="flex flex-col min-h-screen">
+            <Navbar />
 
-          <main className="flex-grow">
-            <Routes>
-              <Route path="/register" element={<Register />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/" element={<Home />} />
-              <Route path="/job/:id" element={<JobDetails />} />
-              <Route path="/profile" element={<UserProfile />} />
-            </Routes>
-          </main>
+            <main className="flex-grow">
+              <Routes>
+                <Route path="/register" element={<Register />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/" element={<Home />} />
+                <Route path="/job/:id" element={<JobDetails />} />
+                <Route path="/profile" element={<UserProfile />} />
+              </Routes>
+            </main>
 
-          <Footer />
-        </div>
-      </Router>
+            <Footer />
+          </div>
+        </Router>
+      </UserProvider>
     </AuthProvider>
   );
 };

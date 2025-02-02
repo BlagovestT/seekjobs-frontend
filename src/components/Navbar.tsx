@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/authContext";
+import { CircleUser } from "lucide-react";
 
 const Navbar: React.FC = () => {
   const { user, logout } = useAuth();
@@ -12,11 +13,15 @@ const Navbar: React.FC = () => {
           <Link to="/">JobSeek</Link>
         </div>
 
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-10">
           {user && (
-            <span className="hidden sm:inline text-gray-300 font-medium text-lg">
-              {user.first_name}
-            </span>
+            <Link
+              to="/profile"
+              className="flex items-center space-x-2 text-gray-300 hover:text-blue-400 font-medium text-lg transition duration-200"
+            >
+              <CircleUser className="text-xl" />
+              <span>{user.first_name}</span>
+            </Link>
           )}
           {user ? (
             <button

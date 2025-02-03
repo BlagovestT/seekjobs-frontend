@@ -18,7 +18,6 @@ const JobCard: React.FC<JobProps> = ({ job }) => {
   return (
     <div className="bg-white shadow-lg rounded-2xl p-6 border border-gray-200 transition-transform hover:scale-105 hover:shadow-xl">
       <h2 className="text-xl font-bold text-gray-900">{job.title}</h2>
-
       <div className="flex flex-wrap gap-4 text-gray-600 mt-3 text-sm">
         <div className="flex items-center gap-2">
           <MapPin size={18} className="text-blue-600" />
@@ -41,9 +40,8 @@ const JobCard: React.FC<JobProps> = ({ job }) => {
           {new Date(job.created_at).toLocaleDateString()}
         </div>
       </div>
-
       <p className="mt-4 text-gray-700 text-sm">{job.description}</p>
-
+      {/* //TODO: Add Edit button when is in the user profile */}
       <button className="mt-4 w-70 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-lg transition">
         Enroll Now
       </button>

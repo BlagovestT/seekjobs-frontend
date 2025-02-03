@@ -12,3 +12,9 @@ export const fetchJobs = async (): Promise<Job[]> => {
     return [];
   }
 };
+
+//TODO: Implement the functionality for editing a job
+
+//TODO: Implement the functionality for creating a job
+
+//TODO: Implement the functionality for deleting a job

@@ -16,13 +16,13 @@ export const fetchUserProfile = async (token: string) => {
   }
 };
 
-export const fetchUserJobs = async (userId: string) => {
+export const fetchUserJobs = async (userId: number) => {
   try {
-    const response = await axios.get("/api/jobs");
-    const allJobs = response.data;
+    const response = await axios.get(`${API_BASE_URL}/api/jobs`);
 
-    /// TODO: Fix the logic
-    const userJobs = allJobs.filter((job: any) => job.user_id === userId);
+    const userJobs = response.data.filter(
+      (job: any) => Number(job.user_id) === userId
+    );
 
     return userJobs;
   } catch (error) {

@@ -13,7 +13,7 @@ const Navbar: React.FC = () => {
           <Link to="/">JobSeek</Link>
         </div>
 
-        <div className="flex items-center space-x-10">
+        <div className="flex items-center space-x-5">
           {user && (
             <Link
               to="/profile"

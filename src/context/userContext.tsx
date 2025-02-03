@@ -3,7 +3,7 @@ import { fetchUserProfile, fetchUserJobs } from "../services/userService";
 import { useAuth } from "./authContext";
 
 interface User {
-  id: string;
+  id: number;
   first_name: string;
   last_name: string;
   email: string;
@@ -11,6 +11,7 @@ interface User {
 
 interface Job {
   id: number;
+  user_id: string;
   title: string;
   description: string;
   location: string;
@@ -41,15 +42,20 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({
       if (token) {
         const userData = await fetchUserProfile(token);
         setUser(userData);
-
-        if (userData?.id) {
-          const jobs = await fetchUserJobs(userData.id);
-          setUserJobs(jobs);
-        }
       }
     };
     loadUser();
   }, [token]);
+
+  useEffect(() => {
+    const loadUserJobs = async () => {
+      if (user?.id) {
+        const jobs = await fetchUserJobs(user.id);
+        setUserJobs(jobs);
+      }
+    };
+    loadUserJobs();
+  }, [user?.id]);
 
   return (
     <UserContext.Provider value={{ user, userJobs, setUser }}>

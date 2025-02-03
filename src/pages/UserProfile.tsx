@@ -16,7 +16,7 @@ const UserProfile: React.FC = () => {
         email={user.email}
       />
 
-      <h2 className="text-2xl font-bold mt-6">Your Posted Jobs</h2>
+      <h2 className="text-2xl font-bold mt-6 mb-6">Your Posted Jobs</h2>
       {userJobs.length > 0 ? (
         <div className="grid gap-4">
           {userJobs.map((job) => (

@@ -7,6 +7,7 @@ import JobDetails from "./pages/JobDetails";
 import UserProfile from "./pages/UserProfile";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ProtectedRoute from "./components/ProtectedRoute"; // Add this import
 import { AuthProvider } from "./context/authContext";
 import { UserProvider } from "./context/userContext";
 
@@ -23,8 +24,14 @@ const App: React.FC = () => {
                 <Route path="/register" element={<Register />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/" element={<Home />} />
-                <Route path="/job/:id" element={<JobDetails />} />
-                <Route path="/profile" element={<UserProfile />} />
+                <Route
+                  path="/job/:id"
+                  element={<ProtectedRoute element={<JobDetails />} />}
+                />
+                <Route
+                  path="/profile"
+                  element={<ProtectedRoute element={<UserProfile />} />}
+                />
               </Routes>
             </main>
 
